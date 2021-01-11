@@ -8,15 +8,12 @@
 //定义图书结构体
 typedef struct book {
 	char id[20];  //图书编号
-	char name[50];  //书名
-	char author[50];//作者
-	char publish[50]; //出版社
-	struct date //定义出版时间结构体
-	{
-		int year, month, day; //年、月、日
-	}date;
+	char name[20];  //书名
+	char author[20];//作者
+	char publish[30]; //出版社
+    int year, month, day; //年、月、日
 	double price; //价格
-	char type[50]; // 类别
+	char type[20]; // 类别
 	bool state = true; //书籍状态，true为可借，false为不可借，初始状态为可借
 	struct book *next;
 }Book;
@@ -51,6 +48,7 @@ typedef struct teacher {
 	char teaid[20];  // 学工号
 	int canb = 10;//可借阅10本
 	int cant = 14;//可借阅14天
+	double fine = 0;
 	struct teacher *next;
 }Teacher;
 

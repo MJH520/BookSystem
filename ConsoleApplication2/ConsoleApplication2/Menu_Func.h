@@ -15,19 +15,19 @@ void Book_Return(book *head);
 void Book_Search(book *head);
 
 //统计功能
-void Book_Count();
+void Book_Count(book *head);
 
 //管理员功能页面
-void administratorfunction();
+void admin_function(book *head);
 
 //管理员添加功能函数
-void administratoradd();
+void admin_add(book *head);
 
 //管理员修改功能函数
-void administratoramend();
+void admin_change(book *head);
 
 //管理员删除功能函数
-void administratordelete();
+void admin_delete(book *head);
 
 
 #endif

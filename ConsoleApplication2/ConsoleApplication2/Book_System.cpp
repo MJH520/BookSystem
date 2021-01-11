@@ -92,7 +92,7 @@ tiaozhuan0:;//跳出循环
 			roundrect(250, 360, 410, 400, 30, 30);
 			if (msg.uMsg == WM_LBUTTONDOWN)
 			{
-				administratorfunction();//管理员功能
+				admin_function(head_book);//管理员功能
 				goto tiaozhuan0;
 
 			}

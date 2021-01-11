@@ -107,7 +107,7 @@ tiaozhuan1:;
 }
 
 //统计功能
-void Book_Count()
+void Book_Count(book *head)
 {
 	initgraph(640, 480);//初始化窗口（窗口大小）
 	char s[1000];
@@ -141,10 +141,44 @@ void Book_Count()
 tiaozhuan1:;
 }
 
-//管理员功能页面
-void administratorfunction()
+//管理员添加功能函数
+void admin_add(book *head)
 {
-tiaozhuan1:;//跳出循环，返回管理员功能页面，重新绘画管理员页面
+	cleardevice();
+	int n;
+	char n_c[20];
+	InputBox(n_c, 20, 0, "请输入您要新录入图书的数量:", 0, 0, 0, false);//对话框
+	n = atoi(n_c);
+	//char s[1000];// 定义字符串缓冲区，并接收用户输入
+	//InputBox(s, 500, NULL, "请输入相关信息：", NULL, 300, 200, false);
+	add_book(head);
+	//outtextxy(0, 0, s);
+}
+
+//管理员修改功能函数
+void admin_change(book *head)
+{
+	cleardevice();
+	char s[1000];// 定义字符串缓冲区，并接收用户输入
+	InputBox(s, 500, NULL, "请输入相关信息：", NULL, 300, 200, false);
+	outtextxy(0, 0, s);
+}
+
+//管理员删除功能函数
+void admin_delete(book *head)
+{
+	cleardevice();
+	char s[1000];// 定义字符串缓冲区，并接收用户输入
+	InputBox(s, 500, NULL, "请输入相关信息：", NULL, 300, 200, false);//显示输入框
+	outtextxy(0, 0, s);
+}
+
+//管理员查询功能函数 
+
+//管理员功能页面
+void admin_function(book *head)
+{
+    tiaozhuan1:;//跳出循环，返回管理员功能页面，重新绘画管理员页面
 	initgraph(640, 480);//初始化窗口（窗口大小）
 	cleardevice();//清屏，相当于刷新页面
 	outtextxy(290, 20, "管理员功能:");
@@ -166,7 +200,7 @@ tiaozhuan1:;//跳出循环，返回管理员功能页面，重新绘画管理员
 			roundrect(250, 80, 410, 120, 30, 30);
 			if (ms.uMsg == WM_LBUTTONDOWN)
 			{
-				administratoradd();//实现管理员添加功能
+				admin_add(head);//实现管理员添加功能
 				goto tiaozhuan1;
 			}
 		}
@@ -176,7 +210,7 @@ tiaozhuan1:;//跳出循环，返回管理员功能页面，重新绘画管理员
 			roundrect(250, 150, 410, 190, 30, 30);
 			if (ms.uMsg == WM_LBUTTONDOWN)
 			{
-				administratoramend();//实现管理员修改功能
+				admin_change(head);//实现管理员修改功能
 				goto tiaozhuan1;//功能实现返回管理员页面
 			}
 		}
@@ -186,7 +220,7 @@ tiaozhuan1:;//跳出循环，返回管理员功能页面，重新绘画管理员
 			roundrect(250, 220, 410, 260, 30, 30);
 			if (ms.uMsg == WM_LBUTTONDOWN)
 			{
-				administratordelete();//设置（绘画）线条为红色
+				admin_delete(head);//设置（绘画）线条为红色
 				goto tiaozhuan1;//功能实现返回管理员页面
 
 			}
@@ -212,32 +246,3 @@ tiaozhuan1:;//跳出循环，返回管理员功能页面，重新绘画管理员
 tiaozhuan0:;//跳出管理员页面，返回主页面
 }
 
-//管理员添加功能函数
-void administratoradd()
-{
-	cleardevice();
-	char s[1000];// 定义字符串缓冲区，并接收用户输入
-	InputBox(s, 500, NULL, "请输入相关信息：", NULL, 300, 200, false);
-	//对话框
-	outtextxy(0, 0, s);
-}
-
-//管理员修改功能函数
-void administratoramend()
-{
-	cleardevice();
-	char s[1000];// 定义字符串缓冲区，并接收用户输入
-	InputBox(s, 500, NULL, "请输入相关信息：", NULL, 300, 200, false);
-	outtextxy(0, 0, s);
-}
-
-//管理员删除功能函数
-void administratordelete()
-{
-	cleardevice();
-	char s[1000];// 定义字符串缓冲区，并接收用户输入
-	InputBox(s, 500, NULL, "请输入相关信息：", NULL, 300, 200, false);//显示输入框
-	outtextxy(0, 0, s);
-}
-
-//管理员查询功能函数 
